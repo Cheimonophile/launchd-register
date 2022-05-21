@@ -14,13 +14,16 @@ PLIST=$LABEL.plist
 DIR=$(cd .. && pwd)
 
 # compile "run"
-gcc -o "$DIR/run" run.c
+gcc -o ../run run.c
+
+# test the service
+../run "$EXE"
 
 # copy info.plist
 sed "s+@DIR+$DIR+g; s+@LABEL+$LABEL+g; s+@EXE+$EXE+g; s+@START_INTERVAL+$START_INTERVAL+g" info.plist >$AGENTS/$PLIST
 
 # reset logs
-rm "$DIR/logs.log" || True
+rm ../logs.log || True
 
 # unload and load service
 launchctl unload "$AGENTS/$PLIST"
