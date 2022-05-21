@@ -19,14 +19,14 @@ chmod +x "$DIR/$EXE"
 # compile "run"
 gcc -o ../run run.c
 
+# reset logs
+rm ../logs.log || True
+
 # test the service
 ../run "$EXE"
 
 # copy info.plist
 sed "s+@DIR+$DIR+g; s+@LABEL+$LABEL+g; s+@EXE+$EXE+g; s+@START_INTERVAL+$START_INTERVAL+g" info.plist >$AGENTS/$PLIST
-
-# reset logs
-rm ../logs.log || True
 
 # unload and load service
 launchctl unload "$AGENTS/$PLIST"
