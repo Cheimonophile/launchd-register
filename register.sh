@@ -13,6 +13,9 @@ LABEL=$USER.$NAME
 PLIST=$LABEL.plist
 DIR=$(cd .. && pwd)
 
+# make sure EXE has the correct permissions
+chmod +x "$DIR/$EXE"
+
 # compile "run"
 gcc -o ../run run.c
 
