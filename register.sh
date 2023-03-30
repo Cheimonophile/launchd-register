@@ -1,6 +1,7 @@
 #!/bin/sh -xe
 cd $(dirname $0)
 
+
 # arguments
 NAME=$1 # the name of the service
 EXE=$2 # the executable file for the service, 
