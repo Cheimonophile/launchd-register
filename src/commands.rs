@@ -9,11 +9,6 @@ use crate::{*,
 fn get_service_directory(exe: &str) -> Result<(String, path::PathBuf, path::PathBuf), Box<dyn error::Error>> {
 
   // directories and labels
-  let exe_name = path::Path::new(&exe)
-    .file_name()
-    .unwrap()
-    .to_str()
-    .unwrap();
   let label = get_service_label(match path::Path::new(&exe).file_name() {
     None => err!("{} ends in ..", exe),
     Some(name) => match name.to_str() {
