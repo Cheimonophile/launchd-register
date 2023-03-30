@@ -25,9 +25,9 @@ pub fn required_args(file: &mut fs::File, label: &str, dir: &path::Path) -> Resu
       <key>RunAtLoad</key>
       <true/>
       <key>StandardOutPath</key>
-      <string>/tmp/{label}.log</string>
+      <string>{dir}/logs.log</string>
       <key>StandardErrorPath</key>
-      <string>/tmp/{label}.log</string>
+      <string>{dir}/logs.log</string>
   ", label=label, dir=dir.display())?;
   Ok(())
 }
